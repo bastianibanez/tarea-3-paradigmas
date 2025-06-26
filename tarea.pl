@@ -139,6 +139,15 @@ primo(P1, P2) :-
   hermano(Padre1, Padre2),
   P1 \= P2.
 
+cunado(C1, C2) :-
+  (esposo(Conyuge, C2) ; esposa(Conyuge, C2)),
+  hermano(C1, Conyuge).
+
+cunado(C1, C2) :-
+  hermano(H, C2),
+  (esposo(C1, H) ; esposa(C1, H)).
+
+
 abuelo(A, N) :-
   progenitor(P, N),
   progenitor(A, P).
