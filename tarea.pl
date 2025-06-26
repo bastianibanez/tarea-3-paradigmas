@@ -11,22 +11,20 @@
 
 % =========================================
 % Hechos personas
-persona('roberto', 95).
-persona('isabel', 87).
+edad('roberto', 95).
+edad('isabel', 87).
+edad('marcelo', 61).
+edad('amalia', 48).
+edad('oscar', 37).
+edad('andrea', 34).
 
-persona('ana', 57).
-persona('marcelo', 61).
-persona('amalia', 48).
-persona('oscar', 37).
-persona('andrea', 34).
+edad('martin', 37).
+edad('sara', 32).
+edad('esteban', 17).
+edad('tiziana', 5).
 
-persona('martin', 37).
-persona('sara', 32).
-persona('esteban', 17).
-persona('tiziana', 5).
-
-persona('matias', 5).
-persona('elias', 2).
+edad('matias', 5).
+edad('elias', 2).
 
 % =========================================
 % Hechos parentescos
@@ -69,46 +67,47 @@ madre(sara, elias).
 
 % =========================================
 % Reglas para edades
+
 bebe(Persona) :-
-  persona(Persona, Edad),
+  edad(Persona, Edad),
   Edad >= 0,
   Edad < 3.
 
 nino(Persona) :-
-  persona(Persona, Edad),
+  edad(Persona, Edad),
   Edad >= 3,
   Edad < 10.
 
 adolescente(Persona) :-
-  persona(Persona, Edad),
+  edad(Persona, Edad),
   Edad >= 10,
   Edad < 21.
 
 adulto(Persona) :-
-  persona(Persona, Edad),
+  edad(Persona, Edad),
   Edad >= 21,
   Edad < 70.
 
 anciano(Persona) :-
-  persona(Persona, Edad),
+  edad(Persona, Edad),
   Edad >= 70.
 
 % =========================================
 % Reglas para comparar edades
 
 mayor_que(P1, P2) :-
-  persona(P1, E1),
-  persona(P2, E2),
+  edad(P1, E1),
+  edad(P2, E2),
   E1 > E2.
 
 menor_que(P1, P2) :-
-  persona(P1, E1),
-  persona(P2, E2),
+  edad(P1, E1),
+  edad(P2, E2),
   E1 < E2.
 
 misma_edad(P1, P2) :-
-  persona(P1, E1),
-  persona(P2, E2),
+  edad(P1, E1),
+  edad(P2, E2),
   E1 =:= E2,
   P1 \= P2.
 
